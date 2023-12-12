@@ -9,6 +9,7 @@ int main()
     m=2;
     srand(time(NULL));
     int matrix[l][n][m];
+    int suma[l][n][m];
     for (int k = 0; k < l; k++)
     {
         for (int i = 0; i < n; i++)
@@ -16,13 +17,15 @@ int main()
             
             for (int j = 0; j < m; j++)
             {
-                matrix[k][i][j]=rand()%101;
+                matrix[k][i][j]=rand()%101;      
             }
             
         }
         
     }
     mostrar (l,n,m,matrix);
+    sumatotal (l,n,m,matrix,suma);
+    mostrar (l,n,m,suma);
     return 0;
 }
 void mostrar (int l, int n, int m,int matriz[l][n][m])
@@ -40,4 +43,20 @@ void mostrar (int l, int n, int m,int matriz[l][n][m])
             printf("\n");
         }
     }
+}
+void sumatotal (int l, int n, int m, int matriz[l][n][m], int suma[l][n][m])
+{
+    for (int k = 0; k < l; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            
+            for (int j = 0; j < m; j++)
+            {
+                suma[k][i][j]+=matriz[k][i][j];      
+            }
+            
+        }
+    }
+    
 }
